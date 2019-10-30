@@ -3,13 +3,11 @@
 
 namespace training_tree {
 
-class ITrainingNode {
+template <typename Iterator> class ITrainingNode {
 public:
   virtual bool HasDependencies() const = 0;
-  virtual void AddDependency(const ITrainingNode& node) = 0;
-
-  //TODO: find a way to pass iterators to this function
-  virtual bool HasOtherDependencies() const = 0;
+  virtual void AddDependency(const ITrainingNode &) = 0;
+  virtual bool HasOtherDependencies(Iterator, Iterator) const = 0;
 };
 
 } // namespace training_tree
